@@ -3,89 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plano Alimentar Personalizado - Acesso Liberado</title>
+    <title>Plano Alimentar Inteligente</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; color: #333; background-color: #fff; }
-        header { background: #1a1a1a; color: white; padding: 40px 20px; text-align: center; border-bottom: 4px solid #27ae60; }
+        :root { --primary: #27ae60; --secondary: #e67e22; --dark: #2c3e50; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; line-height: 1.6; color: #333; background: #fdfdfd; }
+        header { background: white; padding: 20px; text-align: center; border-bottom: 1px solid #eee; }
+        .hero { background: #1a1a1a; color: white; padding: 60px 20px; text-align: center; }
         .container { max-width: 650px; margin: auto; padding: 20px; }
-        .badge-vendas { color: #27ae60; font-weight: bold; letter-spacing: 1px; margin-bottom: 10px; display: block; text-transform: uppercase; }
-        h1 { font-size: 1.8em; margin-top: 0; line-height: 1.2; }
-        .intro-text { font-size: 1.1em; color: #555; margin-bottom: 30px; text-align: center; }
         
-        .cta-button { 
-            display: inline-block; 
-            background: #28a745; 
-            color: white; 
-            padding: 22px 20px; 
-            text-decoration: none; 
-            font-size: 1.4em; 
-            border-radius: 12px; 
-            font-weight: bold; 
-            margin-top: 20px; 
-            width: 100%; 
-            box-sizing: border-box; 
-            text-align: center; 
-            box-shadow: 0 5px 20px rgba(40, 167, 69, 0.4);
-            transition: 0.3s;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
-        }
-
-        .benefit-card { background: #fdfdfd; padding: 20px; margin-bottom: 15px; border: 1px solid #eee; border-left: 6px solid #28a745; border-radius: 8px; }
-        .benefit-card strong { color: #2c3e50; font-size: 1.1em; }
+        h1 { font-size: 2.2em; line-height: 1.1; margin-bottom: 20px; }
+        .highlight { color: var(--primary); }
         
-        .price-box { background: #fef9f9; border: 2px dashed #e74c3c; padding: 25px; border-radius: 15px; text-align: center; margin: 30px 0; }
-        .price-tag { font-size: 2.5em; color: #e74c3c; font-weight: bold; margin: 10px 0; }
-        .old-price { text-decoration: line-through; color: #7f8c8d; font-size: 0.9em; }
+        /* Estilo da Imagem */
+        .product-img-container { text-align: center; margin: -50px auto 30px auto; max-width: 500px; }
+        .product-img { width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 5px solid white; }
         
-        .guarantee-box { text-align: center; font-size: 0.85em; color: #7f8c8d; margin-top: 30px; padding: 20px; background: #f4f4f4; border-radius: 10px; }
-        .secure-badge { font-weight: bold; color: #27ae60; }
+        .check-list { list-style: none; padding: 0; }
+        .check-list li { margin-bottom: 15px; padding-left: 35px; position: relative; font-size: 1.1em; }
+        .check-list li::before { content: '✅'; position: absolute; left: 0; }
+        
+        .para-quem { background: #f0fdf4; padding: 30px; border-radius: 20px; margin: 40px 0; border: 1px solid #dcfce7; }
+        
+        .price-card { text-align: center; padding: 40px 20px; border: 3px solid var(--primary); border-radius: 25px; margin: 40px 0; position: relative; background: white; }
+        .price-card::before { content: 'OFERTA POR TEMPO LIMITADO'; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; padding: 5px 15px; border-radius: 50px; font-size: 0.8em; font-weight: bold; }
+        
+        .old-price { text-decoration: line-through; color: #999; font-size: 1.2em; }
+        .new-price { font-size: 3.5em; color: #e74c3c; font-weight: 900; margin: 10px 0; }
+        
+        .cta-button { display: block; background: var(--secondary); color: white; padding: 25px; text-decoration: none; font-size: 1.5em; border-radius: 15px; font-weight: bold; box-shadow: 0 10px 20px rgba(230, 126, 34, 0.4); transition: 0.3s; animation: pulse 2s infinite; text-align: center; }
+        
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
+        
+        .faq { margin-top: 50px; }
+        .faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .faq-item h3 { font-size: 1.1em; margin-bottom: 5px; color: var(--dark); }
+        
+        footer { background: #f4f4f4; padding: 40px 20px; text-align: center; font-size: 0.8em; color: #999; }
     </style>
 </head>
 <body>
 
-<header>
-    <span class="badge-vendas">Resultado da sua Análise</span>
-    <h1>Seu Plano para Destravar o Metabolismo está pronto!</h1>
-</header>
+    <header>
+        <p style="margin: 5px 0 0 0; font-size: 0.8em; font-weight: bold; color: #666;">ANÁLISE DE PERFIL CONCLUÍDA</p>
+    </header>
 
-<div class="container">
-    <p class="intro-text">
-        Com base nas suas respostas, você faz parte do grupo que precisa de uma <strong>intervenção prática</strong>: alimentos que geram saciedade e aceleram a queima calórica sem complicação.
-    </p>
+    <section class="hero">
+        <div class="container">
+            <h1>Sua estratégia para <span class="highlight">destravar o metabolismo</span> e perder peso com saúde</h1>
+            <p style="font-size: 1.2em; opacity: 0.9;">Com base no seu perfil, você não precisa de dietas restritivas, mas sim de uma <b>reorganização nutricional prática.</b></p>
+        </div>
+    </section>
 
-    <h2 style="text-align: center;">O que você vai receber agora:</h2>
-    
-    <div class="benefit-card">
-        <strong>📚 Plano Alimentar Inteligente:</strong> O guia passo a passo do que comer em cada refeição para atingir seu objetivo.
-    </div>
-    
-    <div class="benefit-card">
-        <strong>🛒 Lista de Compras Econômica:</strong> Como encher o carrinho com os alimentos certos gastando pouco.
-    </div>
-    
-    <div class="benefit-card">
-        <strong>🔄 Guia de Substituições:</strong> Aprenda a trocar ingredientes para nunca enjoar e não sair da dieta.
+    <div class="container">
+        <div class="product-img-container">
+            <img src="https://i.imgur.com/njozOKr.jpeg" alt="Plano Alimentar Inteligente" class="product-img">
+        </div>
+
+        <h2>O que você recebe no seu acesso:</h2>
+        <ul class="check-list">
+            <li><b>Cronograma Alimentar:</b> O que comer do café da manhã ao jantar.</li>
+            <li><b>Lista de Compras Inteligente:</b> Economize até 30% no mercado focando no que importa.</li>
+            <li><b>Guia de Substituições:</b> Não tem frango? Aprenda o que colocar no lugar sem errar.</li>
+            <li><b>Receitas de 15 Minutos:</b> Pratos rápidos para quem não tem tempo a perder.</li>
+        </ul>
+
+        <div class="para-quem">
+            <h3 style="margin-top: 0;">Esse plano é para você se:</h3>
+            <p>✅ Sente que seu metabolismo está lento.</p>
+            <p>✅ Sofre com o "efeito sanfona" (emagrece e engorda).</p>
+            <p>✅ Não quer gastar fortunas com alimentos "fit" caros.</p>
+            <p>✅ Precisa de algo simples que caiba na sua rotina corrida.</p>
+        </div>
+
+        <div class="price-card">
+            <span class="old-price">De R$ 147,00 por</span>
+            <div class="new-price">R$ 49,90</div>
+            <p style="margin-bottom: 30px;">Pagamento único, acesso vitalício.</p>
+            
+            <a href="https://pay.hotmart.com/H98978050J" class="cta-button">SIM! QUERO MEU PLANO AGORA</a>
+            
+            <p style="margin-top: 20px; font-size: 0.9em; color: #27ae60;">🔒 Compra Segura via Hotmart</p>
+        </div>
+
+        <div class="faq">
+            <h2 style="text-align: center;">Dúvidas Frequentes</h2>
+            <div class="faq-item">
+                <h3>Vou receber meu plano como?</h3>
+                <p>O acesso é imediato! Assim que o pagamento for aprovado, você receberá os dados de acesso no seu e-mail através da Hotmart.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Preciso comprar alimentos caros?</h3>
+                <p>Não! O plano foi desenhado com alimentos simples que você encontra em qualquer supermercado de bairro.</p>
+            </div>
+            <div class="faq-item">
+                <h3>E se eu não gostar?</h3>
+                <p>Você tem 7 dias de garantia incondicional. Se não for o que você esperava, devolvemos seu dinheiro sem burocracia.</p>
+            </div>
+        </div>
     </div>
 
-    <div class="price-box">
-        <span class="old-price">De R$ 97,00 por apenas</span>
-        <div class="price-tag">R$ 49,90</div>
-        <div style="font-weight: bold; color: #333;">À vista ou em até 12x no cartão</div>
-    </div>
-
-    <a href="https://pay.hotmart.com/H98978050J" class="cta-button">QUERO ACESSAR MEU PLANO AGORA</a>
-
-    <div class="guarantee-box">
-        <p><strong>🛡️ GARANTIA TOTAL DE 7 DIAS</strong><br>
-        Se por qualquer motivo você não gostar do material, basta pedir o reembolso dentro de 7 dias e devolvemos 100% do seu dinheiro.</p>
-        <p class="secure-badge">🔒 Pagamento 100% Seguro via Hotmart</p>
-    </div>
-</div>
+    <footer>
+        <p>© 2026 Plano Alimentar Inteligente. Todos os direitos reservados.</p>
+        <p>Este site não faz parte do Facebook ou do Google. Os resultados podem variar de pessoa para pessoa.</p>
+    </footer>
 
 </body>
 </html>
