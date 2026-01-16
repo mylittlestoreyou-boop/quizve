@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise Concluída - MMI</title>
+    <style>
+        :root { --primary: #27ae60; --dark: #1a1a1a; --accent: #e67e22; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; line-height: 1.6; color: #333; background: #fff; }
+        .container { max-width: 550px; margin: auto; padding: 20px; }
+        
+        .header-status { text-align: center; font-size: 0.8em; font-weight: bold; color: #666; letter-spacing: 1px; margin-bottom: 20px; text-transform: uppercase; }
+        
+        h1 { font-size: 1.7em; color: var(--dark); line-height: 1.2; text-align: center; margin-bottom: 20px; }
+        .highlight { color: #e74c3c; text-decoration: underline; }
+        
+        .main-img { width: 100%; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); margin-bottom: 25px; }
+        
+        .analysis-card { background: #fef9f5; border-left: 5px solid var(--accent); padding: 20px; border-radius: 0 15px 15px 0; margin-bottom: 25px; }
+        .analysis-card p { margin: 0; font-size: 1.05em; color: #444; }
+
+        .steps { list-style: none; padding: 0; margin-bottom: 30px; }
+        .steps li { display: flex; align-items: center; margin-bottom: 15px; font-size: 1.1em; font-weight: 500; }
+        .steps li::before { content: '✔️'; margin-right: 12px; }
+
+        .cta-container { text-align: center; }
+        .cta-button { display: block; background: var(--accent); color: white; padding: 22px; text-decoration: none; font-size: 1.3em; border-radius: 12px; font-weight: bold; box-shadow: 0 10px 20px rgba(230, 126, 34, 0.4); animation: pulse 2s infinite; }
+        
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
+        
+        .secure-note { font-size: 0.8em; color: #999; margin-top: 15px; display: block; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <p class="header-status">Análise de Perfil Personalizada</p>
+
+        <h1>Você não tem "Genética Ruim". Seu metabolismo está apenas <span class="highlight">BLOQUEADO</span>.</h1>
+        
+        <img src="https://i.imgur.com/0M7vTQk.png" alt="Plano MMI" class="main-img">
+
+        <div class="analysis-card">
+            <p><strong>Resultado da Análise:</strong> Identificamos que seu corpo entrou em um ciclo de <strong>inflamação metabólica</strong>. Por isso, mesmo comendo pouco, você sente que "tudo o que come vira gordura".</p>
+        </div>
+
+        <p style="text-align: center; font-size: 1.1em; color: #555;">Para destravar isso, o <strong>MMI</strong> vai agir em 3 frentes hoje:</p>
+
+        <ul class="steps">
+            <li>Limpeza das células estocadoras de gordura.</li>
+            <li>Reativação da queima natural via termogênese.</li>
+            <li>Manutenção da energia com alimentos econômicos.</li>
+        </ul>
+
+        <div class="cta-container">
+            <a href="./vendas.html" class="cta-button">QUERO DESTRAVAR MEU METABOLISMO</a>
+            <span class="secure-note">Pressione o botão para ver sua recomendação final</span>
+        </div>
+    </div>
+
+</body>
+</html>
