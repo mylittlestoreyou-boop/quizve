@@ -11,78 +11,65 @@
         .hero { background: #1a1a1a; color: white; padding: 40px 20px; text-align: center; }
         .container { max-width: 650px; margin: auto; padding: 20px; }
         
-        h1 { font-size: 1.9em; line-height: 1.2; margin-bottom: 15px; }
-        .highlight { color: var(--primary); }
-        
         .product-img-container { text-align: center; margin: -30px auto 30px auto; max-width: 450px; }
         .product-img { width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 4px solid white; }
         
-        .check-list { list-style: none; padding: 0; }
-        .check-list li { margin-bottom: 12px; padding-left: 35px; position: relative; font-size: 1.05em; }
-        .check-list li::before { content: '✅'; position: absolute; left: 0; }
-        
-        .result-box { background: #f0fdf4; padding: 20px; border-radius: 15px; margin: 20px 0; border: 1px dashed var(--primary); text-align: center; }
-        
+        .testimonial-box { background: #f9f9f9; padding: 20px; border-radius: 15px; margin: 20px 0; font-style: italic; border-left: 5px solid var(--primary); }
+        .testimonial-author { display: block; margin-top: 10px; font-weight: bold; font-style: normal; color: var(--primary); }
+
         .price-card { text-align: center; padding: 35px 20px; border: 3px solid var(--primary); border-radius: 25px; margin: 30px 0; position: relative; background: white; }
         .price-tag { background: var(--primary); color: white; padding: 5px 15px; border-radius: 50px; font-size: 0.8em; font-weight: bold; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); }
         
-        .old-price { text-decoration: line-through; color: #999; font-size: 1.1em; }
         .new-price { font-size: 3.2em; color: #e74c3c; font-weight: 900; margin: 5px 0; }
-        
-        .cta-button { display: block; background: var(--secondary); color: white; padding: 22px; text-decoration: none; font-size: 1.3em; border-radius: 15px; font-weight: bold; box-shadow: 0 10px 20px rgba(230, 126, 34, 0.4); animation: pulse 2s infinite; text-align: center; }
+        .cta-button { display: block; background: var(--secondary); color: white; padding: 22px; text-decoration: none; font-size: 1.3em; border-radius: 15px; font-weight: bold; animation: pulse 2s infinite; text-align: center; }
         
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
         
-        footer { background: #f4f4f4; padding: 30px 20px; text-align: center; font-size: 0.8em; color: #999; }
+        .guarantee { display: flex; align-items: center; justify-content: center; margin-top: 20px; gap: 15px; font-size: 0.9em; }
     </style>
 </head>
 <body>
 
     <header>
-        <p style="margin: 0; font-size: 0.9em; font-weight: bold; color: #e67e22;">✅ ANÁLISE CONCLUÍDA: PERFIL TERMOGÊNICO IDENTIFICADO</p>
+        <p style="margin: 0; font-size: 0.9em; font-weight: bold; color: #e67e22;">🔥 RECOMENDAÇÃO LIBERADA: SEU PLANO ESTÁ PRONTO</p>
     </header>
 
     <section class="hero">
         <div class="container">
-            <h1>Sua Recomendação: <span class="highlight">Método Metabolismo Inteligente</span></h1>
-            <p style="font-size: 1.1em; opacity: 0.9;">Com base nas suas respostas, seu metabolismo precisa de uma <b>reprogramação nutricional</b> para voltar a queimar gordura.</p>
+            <h1 style="font-size: 1.8em;">Destrave sua queima natural com o <span style="color:var(--primary)">Método MMI</span></h1>
+            <p>Um passo a passo econômico para quem não tem tempo a perder.</p>
         </div>
     </section>
 
     <div class="container">
         <div class="product-img-container">
-            <img src="https://i.imgur.com/njozOKr.jpeg" alt="MMI - Método Metabolismo Inteligente" class="product-img">
+            <img src="https://i.imgur.com/0M7vTQk.png" alt="MMI - Método Metabolismo Inteligente" class="product-img">
         </div>
 
-        <div class="result-box">
-            <p style="margin: 0; color: var(--primary); font-weight: bold;">O MMI é focado em pessoas que sentem o metabolismo lento e precisam de resultados reais gastando pouco no mercado.</p>
+        <h3>O que dizem sobre o MMI:</h3>
+        <div class="testimonial-box">
+            "Achei que seria mais uma dieta cara, mas gastei menos no mercado do que antes! Perdi 3kg já na primeira semana seguindo o cronograma."
+            <span class="testimonial-author">— Mariana S.</span>
         </div>
 
-        <h2>O que você recebe no MMI:</h2>
-        <ul class="check-list">
-            <li><b>Cronograma Alimentar MMI:</b> O passo a passo para destravar sua queima natural.</li>
-            <li><b>Lista de Compras Econômica:</b> Encha o carrinho com alimentos comuns que emagrecem.</li>
-            <li><b>Guia de Substituições:</b> Coma o que gosta sem travar seus resultados.</li>
-            <li><b>Receitas Express (15 min):</b> Praticidade total para a sua rotina corrida.</li>
-        </ul>
+        <div class="testimonial-box">
+            "As receitas de 15 minutos salvaram minha rotina. Finalmente um plano que entende quem trabalha o dia todo e quer emagrecer comendo comida de verdade."
+            <span class="testimonial-author">— Roberta F.</span>
+        </div>
 
         <div class="price-card">
-            <span class="price-tag">OFERTA DE LANÇAMENTO LIBERADA</span>
-            <span class="old-price">De R$ 147,00 por apenas</span>
+            <span class="price-tag">OFERTA DE HOJE</span>
+            <span style="text-decoration: line-through; color: #999;">De R$ 147,00 por apenas</span>
             <div class="new-price">R$ 49,90</div>
-            <p style="margin-bottom: 25px; font-size: 0.9em;">Pagamento único. Acesso imediato e vitalício.</p>
             
-            <a href="https://pay.hotmart.com/B98977801P?checkoutMode=10" class="cta-button">SIM! QUERO MEU PLANO MMI</a>
+            <a href="https://pay.hotmart.com/B98977801P?checkoutMode=10" class="cta-button">QUERO MEU ACESSO AGORA</a>
             
-            <p style="margin-top: 15px; font-size: 0.85em; color: #27ae60;">🔒 Compra 100% Segura e Garantida via Hotmart</p>
+            <div class="guarantee">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Shield-7-days-guarantee.svg" width="40" alt="Garantia">
+                <p><strong>Garantia Incondicional:</strong> 7 dias para testar ou seu dinheiro de volta.</p>
+            </div>
         </div>
-
-        <p style="text-align: center; font-size: 0.9em; color: #666;">Atenção: Por ser uma recomendação personalizada, este valor promocional é válido apenas para o seu acesso hoje.</p>
     </div>
-
-    <footer>
-        <p>© 2026 MMI - Método Metabolismo Inteligente. Todos os direitos reservados.</p>
-    </footer>
 
 </body>
 </html>
