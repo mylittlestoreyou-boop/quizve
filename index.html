@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avaliação Metabólica Personalizada</title>
+    <title>Avaliação Metabólica</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: #f0f4f3; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; color: #333; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: #f0f4f3; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
         #quiz-container { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 450px; width: 90%; text-align: center; }
-        .pergunta { display: none; }
+        .pergunta { display: none; animation: fadeIn 0.3s; }
         .ativa { display: block !important; }
-        .progresso-container { background: #eee; height: 10px; border-radius: 5px; margin-bottom: 25px; overflow: hidden; }
-        .progresso-barra { background: #27ae60; height: 100%; width: 25%; transition: 0.4s; }
-        h2 { font-size: 1.3em; margin-bottom: 20px; color: #2c3e50; line-height: 1.4; }
-        button { background: #27ae60; color: white; border: none; padding: 16px; margin: 8px 0; width: 100%; border-radius: 12px; font-size: 1.05em; cursor: pointer; font-weight: 600; transition: 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        button:hover { background: #219150; transform: scale(1.02); }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .progresso-container { background: #eee; height: 8px; border-radius: 4px; margin-bottom: 25px; }
+        .progresso-barra { background: #27ae60; height: 100%; width: 25%; transition: 0.4s; border-radius: 4px; }
+        
+        h2 { font-size: 1.25em; color: #2c3e50; margin-bottom: 20px; line-height: 1.4; }
+        button { background: #27ae60; color: white; border: none; padding: 16px; margin: 8px 0; width: 100%; border-radius: 12px; font-size: 1.05em; cursor: pointer; font-weight: 600; }
+        .badge { background: #e8f5e9; color: #27ae60; padding: 5px 12px; border-radius: 15px; font-size: 0.75em; font-weight: bold; margin-bottom: 10px; display: inline-block; text-transform: uppercase; }
         #carregando { display: none; }
-        .badge { background: #e8f5e9; color: #27ae60; padding: 5px 12px; border-radius: 15px; font-size: 0.8em; font-weight: bold; margin-bottom: 10px; display: inline-block; }
-        .loading-text { font-size: 0.9em; color: #666; margin-top: 15px; font-style: italic; }
     </style>
 </head>
 <body>
@@ -25,69 +26,62 @@
     <div class="progresso-container"><div class="progresso-barra" id="barra"></div></div>
 
     <div id="p1" class="pergunta ativa">
-        <div class="badge">ANÁLISE DE PERFIL</div>
+        <div class="badge">Análise de Perfil</div>
         <h2>Qual seu principal objetivo hoje?</h2>
-        <button onclick="irPara(1, 2, 50)">Perder peso rapidamente</button>
-        <button onclick="irPara(1, 2, 50)">Desinchar e desinflamar</button>
-        <button onclick="irPara(1, 2, 50)">Controlar a ansiedade por doces</button>
+        <button onclick="proxima(1, 2, 50)">Perder peso rapidamente</button>
+        <button onclick="proxima(1, 2, 50)">Desinchar e desinflamar</button>
+        <button onclick="proxima(1, 2, 50)">Controlar a ansiedade por doces</button>
     </div>
 
     <div id="p2" class="pergunta">
-        <div class="badge">IDENTIFICAÇÃO</div>
+        <div class="badge">Identificação</div>
         <h2>Você sente que seu corpo "guarda" tudo o que você come, mesmo em pequenas quantidades?</h2>
-        <button onclick="irPara(2, 3, 75)">Sim, sinto o metabolismo travado</button>
-        <button onclick="irPara(2, 3, 75)">Sim, engordo com muita facilidade</button>
-        <button onclick="irPara(2, 3, 75)">Não tenho certeza</button>
+        <button onclick="proxima(2, 3, 75)">Sim, sinto o metabolismo travado</button>
+        <button onclick="proxima(2, 3, 75)">Sim, engordo com facilidade</button>
     </div>
 
     <div id="p3" class="pergunta">
-        <div class="badge">HISTÓRICO</div>
-        <h2>Você está cansada de dietas restritivas que te fazem passar fome e não dão resultado?</h2>
-        <button onclick="irPara(3, 4, 90)">Sim, cansei do efeito sanfona</button>
-        <button onclick="irPara(3, 4, 90)">Quero algo prático e definitivo</button>
+        <div class="badge">Histórico</div>
+        <h2>Já tentou dietas que te fizeram passar fome e desistir no meio?</h2>
+        <button onclick="proxima(3, 4, 90)">Sim, várias vezes</button>
+        <button onclick="proxima(3, 4, 90)">Quero algo que funcione</button>
     </div>
 
     <div id="p4" class="pergunta">
-        <div class="badge">CONCLUSÃO</div>
-        <h2>Se entregarmos um caminho de 30 dias com alimentos baratos, você está disposta a seguir?</h2>
-        <button onclick="finalizar()" style="background: #e67e22;">SIM, QUERO COMEÇAR HOJE!</button>
-        <button onclick="finalizar()">SIM, ESTOU COMPROMETIDA</button>
+        <div class="badge">Comprometimento</div>
+        <h2>Está disposta a seguir um plano de 21 dias para destravar seu metabolismo?</h2>
+        <button onclick="finalizar()" style="background: #e67e22;">SIM, ESTOU PRONTA!</button>
     </div>
 
     <div id="carregando">
         <img src="https://i.gifer.com/ZZ5H.gif" width="40" alt="loading">
-        <h2 id="msg-carregando">Analisando seu metabolismo...</h2>
-        <p class="loading-text" id="sub-msg">Verificando compatibilidade do plano...</p>
+        <h2 id="status-text">Analisando suas respostas...</h2>
     </div>
 </div>
 
 <script>
-    function irPara(atual, proxima, porcentagem) {
-        document.getElementById('p' + atual).style.display = 'none';
-        document.getElementById('p' + proxima).style.display = 'block';
+    function proxima(atual, proxima, porcentagem) {
+        // Esconde a pergunta atual
+        document.getElementById('p' + atual).classList.remove('ativa');
+        // Mostra a próxima
+        document.getElementById('p' + proxima).classList.add('ativa');
+        // Atualiza a barra
         document.getElementById('barra').style.width = porcentagem + '%';
     }
 
     function finalizar() {
-        document.getElementById('p4').style.display = 'none';
+        document.getElementById('p4').classList.remove('ativa');
         document.getElementById('barra').style.width = '100%';
         document.getElementById('carregando').style.display = 'block';
         
-        // Simulação de análise dinâmica para aumentar percepção de valor
-        setTimeout(function() {
-            document.getElementById('msg-carregando').innerText = "Perfil Identificado!";
-            document.getElementById('sub-msg').innerText = "Gerando sua recomendação personalizada...";
-        }, 1200);
+        setTimeout(() => {
+            document.getElementById('status-text').innerText = "Perfil Identificado!";
+        }, 1500);
 
-        setTimeout(function() {
-            irParaPresell();
-        }, 2500); // 2.5 segundos é o tempo ideal para gerar autoridade sem perder o cliente
-    }
-
-    function irParaPresell() {
-        const urlAtual = window.location.href;
-        const base = urlAtual.substring(0, urlAtual.lastIndexOf('/') + 1);
-        window.location.href = base + "resultado.html";
+        setTimeout(() => {
+            // Redireciona para sua página de resultado/presell
+            window.location.href = "resultado.html"; 
+        }, 3000);
     }
 </script>
 
