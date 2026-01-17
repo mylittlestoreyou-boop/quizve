@@ -10,13 +10,13 @@
         .pergunta { display: none; }
         .ativa { display: block !important; }
         .progresso-container { background: #eee; height: 10px; border-radius: 5px; margin-bottom: 25px; overflow: hidden; }
-        .progresso-barra { background: #27ae60; height: 100%; width: 10%; transition: 0.4s; }
-        h2 { font-size: 1.3em; margin-bottom: 20px; color: #2c3e50; }
-        button { background: #27ae60; color: white; border: none; padding: 16px; margin: 8px 0; width: 100%; border-radius: 12px; font-size: 1.05em; cursor: pointer; font-weight: 600; transition: 0.2s; }
+        .progresso-barra { background: #27ae60; height: 100%; width: 25%; transition: 0.4s; }
+        h2 { font-size: 1.3em; margin-bottom: 20px; color: #2c3e50; line-height: 1.4; }
+        button { background: #27ae60; color: white; border: none; padding: 16px; margin: 8px 0; width: 100%; border-radius: 12px; font-size: 1.05em; cursor: pointer; font-weight: 600; transition: 0.2s; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         button:hover { background: #219150; transform: scale(1.02); }
-        #carregando, #resultado { display: none; }
+        #carregando { display: none; }
         .badge { background: #e8f5e9; color: #27ae60; padding: 5px 12px; border-radius: 15px; font-size: 0.8em; font-weight: bold; margin-bottom: 10px; display: inline-block; }
-        .btn-final { background: #e67e22 !important; font-size: 1.2em !important; margin-top: 10px; }
+        .loading-text { font-size: 0.9em; color: #666; margin-top: 15px; font-style: italic; }
     </style>
 </head>
 <body>
@@ -25,75 +25,39 @@
     <div class="progresso-container"><div class="progresso-barra" id="barra"></div></div>
 
     <div id="p1" class="pergunta ativa">
-        <div class="badge">ANÁLISE INICIAL</div>
-        <h2>Qual seu principal objetivo ao buscar um plano alimentar?</h2>
-        <button onclick="irPara(1, 2, 25)">Perder peso rapidamente</button>
-        <button onclick="irPara(1, 2, 25)">Ganhar saúde e disposição</button>
-        <button onclick="irPara(1, 2, 25)">Controlar a ansiedade alimentar</button>
+        <div class="badge">ANÁLISE DE PERFIL</div>
+        <h2>Qual seu principal objetivo hoje?</h2>
+        <button onclick="irPara(1, 2, 50)">Perder peso rapidamente</button>
+        <button onclick="irPara(1, 2, 50)">Desinchar e desinflamar</button>
+        <button onclick="irPara(1, 2, 50)">Controlar a ansiedade por doces</button>
     </div>
 
     <div id="p2" class="pergunta">
-        <div class="badge">PERFIL FÍSICO</div>
-        <h2>Como você sente seu metabolismo hoje?</h2>
-        <button onclick="irPara(2, 3, 35)">Lento (engordo com facilidade)</button>
-        <button onclick="irPara(2, 3, 35)">Normal (mantenho com esforço)</button>
-        <button onclick="irPara(2, 3, 35)">Não tenho certeza</button>
+        <div class="badge">IDENTIFICAÇÃO</div>
+        <h2>Você sente que seu corpo "guarda" tudo o que você come, mesmo em pequenas quantidades?</h2>
+        <button onclick="irPara(2, 3, 75)">Sim, sinto o metabolismo travado</button>
+        <button onclick="irPara(2, 3, 75)">Sim, engordo com muita facilidade</button>
+        <button onclick="irPara(2, 3, 75)">Não tenho certeza</button>
     </div>
 
     <div id="p3" class="pergunta">
-        <div class="badge">ROTINA</div>
-        <h2>Quanto tempo você tem disponível para cozinhar?</h2>
-        <button onclick="irPara(3, 4, 50)">Quase nada, vivo na correria</button>
-        <button onclick="irPara(3, 4, 50)">Tenho tempo aos fins de semana</button>
-        <button onclick="irPara(3, 4, 50)">Gosto de cozinhar todos os dias</button>
+        <div class="badge">HISTÓRICO</div>
+        <h2>Você está cansada de dietas restritivas que te fazem passar fome e não dão resultado?</h2>
+        <button onclick="irPara(3, 4, 90)">Sim, cansei do efeito sanfona</button>
+        <button onclick="irPara(3, 4, 90)">Quero algo prático e definitivo</button>
     </div>
 
     <div id="p4" class="pergunta">
-        <div class="badge">HÁBITOS</div>
-        <h2>Qual seu maior "ponto fraco" na alimentação?</h2>
-        <button onclick="irPara(4, 5, 65)">Vontade de comer doces</button>
-        <button onclick="irPara(4, 5, 65)">Comer muito à noite</button>
-        <button onclick="irPara(4, 5, 65)">Lanches industrializados</button>
-    </div>
-
-    <div id="p5" class="pergunta">
-        <div class="badge">HISTÓRICO</div>
-        <h2>Já tentou dietas que te fizeram passar fome e desistir?</h2>
-        <button onclick="irPara(5, 6, 80)">Sim, várias vezes</button>
-        <button onclick="irPara(5, 6, 80)">Apenas uma vez</button>
-        <button onclick="irPara(5, 6, 80)">Nunca fiz dieta restritiva</button>
-    </div>
-
-    <div id="p6" class="pergunta">
-        <div class="badge">PREFERÊNCIA</div>
-        <h2>Você prefere alimentos simples que encontra em qualquer mercado?</h2>
-        <button onclick="irPara(6, 7, 90)">Sim, quero economizar</button>
-        <button onclick="irPara(6, 7, 90)">Não me importo com o preço</button>
-    </div>
-
-    <div id="p7" class="pergunta">
-        <div class="badge">COMPROMETIMENTO</div>
-        <h2>Se entregarmos um caminho prático, você está disposta a seguir por pelo menos 30 dias?</h2>
-        <button onclick="finalizar()">SIM, ESTOU COMPROMETIDA!</button>
-        <button onclick="finalizar()">QUERO TENTAR</button>
+        <div class="badge">CONCLUSÃO</div>
+        <h2>Se entregarmos um caminho de 30 dias com alimentos baratos, você está disposta a seguir?</h2>
+        <button onclick="finalizar()" style="background: #e67e22;">SIM, QUERO COMEÇAR HOJE!</button>
+        <button onclick="finalizar()">SIM, ESTOU COMPROMETIDA</button>
     </div>
 
     <div id="carregando">
         <img src="https://i.gifer.com/ZZ5H.gif" width="40" alt="loading">
-        <h2>Processando suas respostas...</h2>
-        <p>Aguarde, estamos cruzando seus dados com nosso banco de estratégias nutricionais.</p>
-    </div>
-
-    <div id="resultado">
-        <h2 style="color: #27ae60;">PERFIL IDENTIFICADO! ✅</h2>
-        <p>Sua análise revelou que seu metabolismo precisa de uma <b>reprogramação nutricional prática</b>.</p>
-        <div style="background: #f9f9f9; padding: 15px; border-radius: 10px; text-align: left; font-size: 0.9em; border: 1px dashed #27ae60; margin-bottom: 20px;">
-            <b>Indicação:</b> Plano Alimentar de Baixo Custo + Ciclo Termogênico.
-        </div>
-        
-        <button onclick="irParaPresell()" class="btn-final">
-            VER MINHA RECOMENDAÇÃO
-        </button>
+        <h2 id="msg-carregando">Analisando seu metabolismo...</h2>
+        <p class="loading-text" id="sub-msg">Verificando compatibilidade do plano...</p>
     </div>
 </div>
 
@@ -105,17 +69,22 @@
     }
 
     function finalizar() {
-        document.getElementById('p7').style.display = 'none';
+        document.getElementById('p4').style.display = 'none';
         document.getElementById('barra').style.width = '100%';
         document.getElementById('carregando').style.display = 'block';
+        
+        // Simulação de análise dinâmica para aumentar percepção de valor
         setTimeout(function() {
-            document.getElementById('carregando').style.display = 'none';
-            document.getElementById('resultado').style.display = 'block';
-        }, 3000);
+            document.getElementById('msg-carregando').innerText = "Perfil Identificado!";
+            document.getElementById('sub-msg').innerText = "Gerando sua recomendação personalizada...";
+        }, 1200);
+
+        setTimeout(function() {
+            irParaPresell();
+        }, 2500); // 2.5 segundos é o tempo ideal para gerar autoridade sem perder o cliente
     }
 
     function irParaPresell() {
-        // Pega a URL atual e garante que vai para resultado.html na mesma pasta
         const urlAtual = window.location.href;
         const base = urlAtual.substring(0, urlAtual.lastIndexOf('/') + 1);
         window.location.href = base + "resultado.html";
