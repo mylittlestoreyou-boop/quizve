@@ -5,71 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MMI - Método Metabolismo Inteligente</title>
     <style>
-        :root { --primary: #27ae60; --secondary: #e67e22; --dark: #2c3e50; }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; line-height: 1.6; color: #333; background: #fdfdfd; }
-        header { background: #fff9f4; padding: 15px; text-align: center; border-bottom: 2px solid #ff790033; }
-        .hero { background: #1a1a1a; color: white; padding: 40px 20px; text-align: center; }
-        .container { max-width: 650px; margin: auto; padding: 20px; }
+        :root { --primary: #27ae60; --secondary: #e67e22; --dark: #1a1a1a; --danger: #e74c3c; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; line-height: 1.6; color: #333; background: #fff; }
         
-        .product-img-container { text-align: center; margin: -30px auto 30px auto; max-width: 450px; }
-        .product-img { width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 4px solid white; }
-        
-        .testimonial-box { background: #f9f9f9; padding: 20px; border-radius: 15px; margin: 20px 0; font-style: italic; border-left: 5px solid var(--primary); }
-        .testimonial-author { display: block; margin-top: 10px; font-weight: bold; font-style: normal; color: var(--primary); }
+        header { background: #fff; padding: 10px; text-align: center; border-bottom: 1px solid #eee; }
+        .urgency-bar { background: var(--danger); color: white; text-align: center; padding: 5px; font-size: 0.8em; font-weight: bold; }
 
-        .price-card { text-align: center; padding: 35px 20px; border: 3px solid var(--primary); border-radius: 25px; margin: 30px 0; position: relative; background: white; }
-        .price-tag { background: var(--primary); color: white; padding: 5px 15px; border-radius: 50px; font-size: 0.8em; font-weight: bold; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); }
+        .container { max-width: 500px; margin: auto; padding: 20px; }
         
-        .new-price { font-size: 3.2em; color: #e74c3c; font-weight: 900; margin: 5px 0; }
-        .cta-button { display: block; background: var(--secondary); color: white; padding: 22px; text-decoration: none; font-size: 1.3em; border-radius: 15px; font-weight: bold; animation: pulse 2s infinite; text-align: center; }
-        
+        h1 { font-size: 1.7em; color: var(--dark); line-height: 1.2; text-align: center; margin-bottom: 15px; }
+        .headline-sub { text-align: center; color: #666; font-size: 1.1em; margin-bottom: 25px; }
+
+        /* Estilização da Imagem de Antes e Depois */
+        .before-after-container { text-align: center; margin-bottom: 30px; }
+        .before-after-img { width: 100%; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+        .img-caption { font-size: 0.85em; color: #888; margin-top: 8px; font-style: italic; }
+
+        .check-list { list-style: none; padding: 0; margin: 25px 0; }
+        .check-list li { display: flex; align-items: center; margin-bottom: 12px; font-weight: 500; font-size: 1.05em; }
+        .check-list li::before { content: '✅'; margin-right: 12px; }
+
+        /* Box de Bônus */
+        .bonus-box { background: #f0f7f4; border: 2px dashed var(--primary); padding: 20px; border-radius: 15px; margin-bottom: 30px; }
+        .bonus-box h3 { margin-top: 0; color: var(--primary); font-size: 1.1em; text-align: center; }
+        .bonus-item { font-size: 0.95em; margin-bottom: 8px; display: block; }
+
+        /* Card de Preço */
+        .price-card { text-align: center; padding: 30px 20px; border: 2px solid #eee; border-radius: 20px; background: #fafafa; }
+        .old-price { text-decoration: line-through; color: #999; font-size: 1em; }
+        .new-price { font-size: 3.5em; color: var(--dark); font-weight: 900; margin: 5px 0; }
+        .cta-button { display: block; background: var(--secondary); color: white; padding: 22px; text-decoration: none; font-size: 1.3em; border-radius: 12px; font-weight: bold; box-shadow: 0 10px 20px rgba(230, 126, 34, 0.4); animation: pulse 2s infinite; margin-top: 15px; }
+
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
-        
-        .guarantee { display: flex; align-items: center; justify-content: center; margin-top: 20px; gap: 15px; font-size: 0.9em; }
+
+        .guarantee-box { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 20px; font-size: 0.8em; color: #777; }
+        footer { text-align: center; padding: 30px; font-size: 0.7em; color: #ccc; }
     </style>
 </head>
 <body>
 
+    <div class="urgency-bar">⚠️ OFERTA ÚNICA: DISPONÍVEL APENAS NESTA PÁGINA</div>
+
     <header>
-        <p style="margin: 0; font-size: 0.9em; font-weight: bold; color: #e67e22;">🔥 RECOMENDAÇÃO LIBERADA: SEU PLANO ESTÁ PRONTO</p>
+        <img src="https://i.imgur.com/7S8M6Xf.png" width="100" alt="Seguro">
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1 style="font-size: 1.8em;">Destrave sua queima natural com o <span style="color:var(--primary)">Método MMI</span></h1>
-            <p>Um passo a passo econômico para quem não tem tempo a perder.</p>
-        </div>
-    </section>
-
     <div class="container">
-        <div class="product-img-container">
-            <img src="https://i.imgur.com/0M7vTQk.png" alt="MMI - Método Metabolismo Inteligente" class="product-img">
+        <h1>Recupere suas roupas favoritas com o <span style="color:var(--primary)">Protocolo MMI</span></h1>
+        <p class="headline-sub">O método de destrave metabólico para quem precisa de resultados rápidos gastando pouco.</p>
+
+        <div class="before-after-container">
+            <img src="https://i.imgur.com/rBc3Wbr.png" alt="Resultado MMI" class="before-after-img">
+            <p class="img-caption">Resultados reais de quem seguiu o ciclo de 21 dias.</p>
         </div>
 
-        <h3>O que dizem sobre o MMI:</h3>
-        <div class="testimonial-box">
-            "Achei que seria mais uma dieta cara, mas gastei menos no mercado do que antes! Perdi 3kg já na primeira semana seguindo o cronograma."
-            <span class="testimonial-author">— Mariana S.</span>
-        </div>
+        <ul class="check-list">
+            <li>Cardápio de baixo custo (itens de mercado)</li>
+            <li>Passo a passo para eliminar o inchaço</li>
+            <li>Guia de queima noturna acelerada</li>
+            <li>Sem exercícios exaustivos</li>
+        </ul>
 
-        <div class="testimonial-box">
-            "As receitas de 15 minutos salvaram minha rotina. Finalmente um plano que entende quem trabalha o dia todo e quer emagrecer comendo comida de verdade."
-            <span class="testimonial-author">— Roberta F.</span>
+        <div class="bonus-box">
+            <h3>VOCÊ TAMBÉM RECEBE HOJE:</h3>
+            <span class="bonus-item">🎁 <b>Bônus 1:</b> Doces que não engordam</span>
+            <span class="bonus-item">🎁 <b>Bônus 2:</b> Guia de Sucos Detox 24h</span>
+            <span class="bonus-item">🎁 <b>Bônus 3:</b> Lista de substituições baratas</span>
         </div>
 
         <div class="price-card">
-            <span class="price-tag">OFERTA DE HOJE</span>
-            <span style="text-decoration: line-through; color: #999;">De R$ 147,00 por apenas</span>
+            <span class="old-price">De R$ 147,00 por apenas</span>
             <div class="new-price">R$ 49,90</div>
+            <p style="margin-top: 0; font-weight: bold; color: var(--primary);">ACESSO IMEDIATO E VITALÍCIO</p>
             
             <a href="https://pay.hotmart.com/B98977801P?checkoutMode=10" class="cta-button">QUERO MEU ACESSO AGORA</a>
             
-            <div class="guarantee">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Shield-7-days-guarantee.svg" width="40" alt="Garantia">
-                <p><strong>Garantia Incondicional:</strong> 7 dias para testar ou seu dinheiro de volta.</p>
+            <div class="guarantee-box">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Shield-7-days-guarantee.svg" width="30" alt="Garantia">
+                <p>7 Dias de Garantia Incondicional</p>
             </div>
         </div>
     </div>
+
+    <footer>
+        <p>&copy; 2024 MMI - Método Metabolismo Inteligente<br>Todos os direitos reservados.</p>
+    </footer>
 
 </body>
 </html>
