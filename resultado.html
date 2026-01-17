@@ -5,58 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Análise Concluída - MMI</title>
     <style>
-        :root { --primary: #27ae60; --dark: #1a1a1a; --accent: #e67e22; }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; line-height: 1.6; color: #333; background: #fff; }
-        .container { max-width: 550px; margin: auto; padding: 20px; }
+        :root { --primary: #27ae60; --dark: #1a1a1a; --accent: #e67e22; --danger: #e74c3c; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; line-height: 1.6; color: #333; background: #f4f7f6; }
         
-        .header-status { text-align: center; font-size: 0.8em; font-weight: bold; color: #666; letter-spacing: 1px; margin-bottom: 20px; text-transform: uppercase; }
+        /* Barra de Urgência */
+        .timer-bar { background: var(--danger); color: white; text-align: center; padding: 8px; font-size: 0.85em; font-weight: bold; position: sticky; top: 0; z-index: 100; }
         
-        h1 { font-size: 1.7em; color: var(--dark); line-height: 1.2; text-align: center; margin-bottom: 20px; }
-        .highlight { color: #e74c3c; text-decoration: underline; }
+        .container { max-width: 500px; margin: auto; padding: 20px; background: #fff; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
         
-        .main-img { width: 100%; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); margin-bottom: 25px; }
+        .header-status { text-align: center; font-size: 0.75em; font-weight: bold; color: var(--primary); letter-spacing: 1px; margin-bottom: 15px; text-transform: uppercase; border: 1px solid #ddd; display: inline-block; padding: 4px 10px; border-radius: 20px; width: 100%; box-sizing: border-box; }
         
-        .analysis-card { background: #fef9f5; border-left: 5px solid var(--accent); padding: 20px; border-radius: 0 15px 15px 0; margin-bottom: 25px; }
-        .analysis-card p { margin: 0; font-size: 1.05em; color: #444; }
+        h1 { font-size: 1.6em; color: var(--dark); line-height: 1.3; text-align: center; margin-bottom: 20px; }
+        .highlight { color: var(--danger); background: #fff3f3; padding: 0 5px; border-radius: 4px; }
+        
+        .main-img { width: 100%; border-radius: 15px; margin-bottom: 20px; display: block; }
+        
+        .analysis-card { background: #fdfaf7; border: 1px dashed var(--accent); padding: 18px; border-radius: 12px; margin-bottom: 25px; position: relative; }
+        .analysis-card::before { content: 'ID: #44921'; position: absolute; top: -10px; right: 10px; background: var(--accent); color: white; font-size: 0.6em; padding: 2px 8px; border-radius: 10px; }
+        .analysis-card p { margin: 0; font-size: 1em; color: #444; }
 
         .steps { list-style: none; padding: 0; margin-bottom: 30px; }
-        .steps li { display: flex; align-items: center; margin-bottom: 15px; font-size: 1.1em; font-weight: 500; }
-        .steps li::before { content: '✔️'; margin-right: 12px; }
+        .steps li { display: flex; align-items: center; margin-bottom: 12px; font-size: 1.05em; font-weight: 500; }
+        .steps li::before { content: '✅'; margin-right: 12px; font-size: 1.1em; }
 
-        .cta-container { text-align: center; }
-        .cta-button { display: block; background: var(--accent); color: white; padding: 22px; text-decoration: none; font-size: 1.3em; border-radius: 12px; font-weight: bold; box-shadow: 0 10px 20px rgba(230, 126, 34, 0.4); animation: pulse 2s infinite; }
+        .cta-container { text-align: center; padding-bottom: 40px; }
+        .cta-button { display: block; background: var(--primary); color: white; padding: 20px; text-decoration: none; font-size: 1.2em; border-radius: 12px; font-weight: bold; box-shadow: 0 8px 15px rgba(39, 174, 96, 0.3); animation: pulse 2s infinite; }
         
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
+        .price-tag { display: block; margin-top: 10px; font-size: 0.9em; color: #666; font-weight: normal; }
+        .price-tag b { color: var(--dark); font-size: 1.1em; }
         
-        .secure-note { font-size: 0.8em; color: #999; margin-top: 15px; display: block; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.04); } 100% { transform: scale(1); } }
+        
+        .secure-note { font-size: 0.75em; color: #999; margin-top: 15px; display: block; }
+        .secure-icons { width: 150px; margin-top: 10px; opacity: 0.6; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <p class="header-status">Análise de Perfil Personalizada</p>
+    <div class="timer-bar">
+        Sua análise expira em: <span id="countdown">05:00</span>
+    </div>
 
-        <h1>Você não tem "Genética Ruim". Seu metabolismo está apenas <span class="highlight">BLOQUEADO</span>.</h1>
+    <div class="container">
+        <div class="header-status">📍 Perfil Identificado: Metabolismo Bloqueado</div>
+
+        <h1>Seu metabolismo não é "lento", ele está <span class="highlight">BLOQUEADO</span> por inflamação.</h1>
         
         <img src="https://i.imgur.com/0M7vTQk.png" alt="Plano MMI" class="main-img">
 
         <div class="analysis-card">
-            <p><strong>Resultado da Análise:</strong> Identificamos que seu corpo entrou em um ciclo de <strong>inflamação metabólica</strong>. Por isso, mesmo comendo pouco, você sente que "tudo o que come vira gordura".</p>
+            <p><strong>Conclusão Técnica:</strong> Você entrou no efeito de "estoque de emergência". Seu corpo parou de queimar gordura para focar em inflamação. Para destravar, você precisa de um <b>choque termogênico econômico</b>.</p>
         </div>
 
-        <p style="text-align: center; font-size: 1.1em; color: #555;">Para destravar isso, o <strong>MMI</strong> vai agir em 3 frentes hoje:</p>
+        <p style="text-align: center; font-size: 1.1em; color: #555; font-weight: bold;">O que o MMI fará por você hoje:</p>
 
         <ul class="steps">
-            <li>Limpeza das células estocadoras de gordura.</li>
-            <li>Reativação da queima natural via termogênese.</li>
-            <li>Manutenção da energia com alimentos econômicos.</li>
+            <li>Limpeza das células estocadoras.</li>
+            <li>Reativação da queima 24h por dia.</li>
+            <li>Cardápio com alimentos de mercado.</li>
         </ul>
 
         <div class="cta-container">
             <a href="./vendas.html" class="cta-button">QUERO DESTRAVAR MEU METABOLISMO</a>
-            <span class="secure-note">Pressione o botão para ver sua recomendação final</span>
-        </div>
-    </div>
-
-</body>
-</html>
+            
+            <span class="price-tag">Acesso imediato por apenas <b>R$ 49,90</b></span>
+            
+            <span class="secure-note">Pressione o botão acima para ver sua recomendação final</span>
