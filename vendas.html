@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MMI - Método Metabolismo Inteligente</title>
     <style>
-        :root { --primary: #27ae60; --secondary: #e67e22; --dark: #1a1a1a; --danger: #e74c3c; }
+        :root { --primary: #27ae60; --secondary: #e67e22; --dark: #1a1a1a; --danger: #e74c3c; --blue: #2980b9; }
         body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; line-height: 1.6; color: #333; background: #fff; }
         
         header { background: #fff; padding: 10px; text-align: center; border-bottom: 1px solid #eee; }
-        .urgency-bar { background: var(--danger); color: white; text-align: center; padding: 5px; font-size: 0.8em; font-weight: bold; }
+        .urgency-bar { background: var(--danger); color: white; text-align: center; padding: 8px; font-size: 0.85em; font-weight: bold; }
 
         .container { max-width: 500px; margin: auto; padding: 20px; }
         
@@ -21,14 +21,20 @@
         .before-after-img { width: 100%; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
         .img-caption { font-size: 0.85em; color: #888; margin-top: 8px; font-style: italic; }
 
+        /* NOVA SEÇÃO: RATIFICAÇÃO DA ENTREGA */
+        .delivery-box { background: #f9f9f9; border-left: 4px solid var(--blue); padding: 15px; margin-bottom: 25px; border-radius: 0 10px 10px 0; font-size: 0.9em; }
+        .delivery-box b { color: var(--blue); }
+
         .check-list { list-style: none; padding: 0; margin: 25px 0; }
         .check-list li { display: flex; align-items: center; margin-bottom: 12px; font-weight: 500; font-size: 1.05em; }
         .check-list li::before { content: '✅'; margin-right: 12px; }
 
-        /* Box de Bônus */
-        .bonus-box { background: #f0f7f4; border: 2px dashed var(--primary); padding: 20px; border-radius: 15px; margin-bottom: 30px; }
-        .bonus-box h3 { margin-top: 0; color: var(--primary); font-size: 1.1em; text-align: center; }
-        .bonus-item { font-size: 0.95em; margin-bottom: 8px; display: block; }
+        /* Box de Bônus Reformulado */
+        .bonus-box { background: #fffdec; border: 2px solid #f1c40f; padding: 20px; border-radius: 15px; margin-bottom: 30px; position: relative; }
+        .bonus-tag { position: absolute; top: -12px; right: 10px; background: #f1c40f; color: #000; font-size: 0.7em; font-weight: bold; padding: 2px 10px; border-radius: 5px; }
+        .bonus-box h3 { margin-top: 0; color: #d35400; font-size: 1.1em; text-align: center; text-transform: uppercase; }
+        .bonus-item { font-size: 0.95em; margin-bottom: 12px; display: block; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 5px; }
+        .bonus-item b { color: var(--primary); }
 
         /* Card de Preço */
         .price-card { text-align: center; padding: 30px 20px; border: 2px solid #eee; border-radius: 20px; background: #fafafa; }
@@ -38,21 +44,27 @@
 
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
 
-        .guarantee-box { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 20px; font-size: 0.8em; color: #777; }
+        .secure-footer { margin-top: 20px; display: flex; flex-direction: column; align-items: center; gap: 5px; opacity: 0.7; }
+        .guarantee-box { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 15px; font-size: 0.85em; color: #444; font-weight: bold; }
         footer { text-align: center; padding: 30px; font-size: 0.7em; color: #ccc; }
     </style>
 </head>
 <body>
 
-    <div class="urgency-bar">⚠️ OFERTA ÚNICA: DISPONÍVEL APENAS NESTA PÁGINA</div>
+    <div class="urgency-bar">⚠️ OFERTA ÚNICA: SEU ACESSO SERÁ LIBERADO INSTANTANEAMENTE</div>
 
     <header>
-        <img src="https://i.imgur.com/7S8M6Xf.png" width="100" alt="Seguro">
+        <img src="https://i.imgur.com/7S8M6Xf.png" width="80" alt="Compra Segura via Hotmart">
     </header>
 
     <div class="container">
         <h1>Recupere suas roupas favoritas com o <span style="color:var(--primary)">Protocolo MMI</span></h1>
         <p class="headline-sub">O método de destrave metabólico para quem precisa de resultados rápidos gastando pouco.</p>
+
+        <div class="delivery-box">
+            <b>🏠 ÁREA DE MEMBROS EXCLUSIVA:</b><br>
+            Ao garantir sua vaga, você recebe o acesso imediato ao nosso portal. Assista às aulas e baixe os guias pelo celular, tablet ou computador. <b>Disponível também no App Hotmart.</b>
+        </div>
 
         <div class="before-after-container">
             <img src="https://i.imgur.com/rBc3Wbr.png" alt="Resultado MMI" class="before-after-img">
@@ -64,31 +76,38 @@
             <li>Passo a passo para eliminar o inchaço</li>
             <li>Guia de queima noturna acelerada</li>
             <li>Sem exercícios exaustivos</li>
+            <li>Acesso Vitalício (pague uma única vez)</li>
         </ul>
 
         <div class="bonus-box">
-            <h3>VOCÊ TAMBÉM RECEBE HOJE:</h3>
-            <span class="bonus-item">🎁 <b>Bônus 1:</b> Doces que não engordam</span>
-            <span class="bonus-item">🎁 <b>Bônus 2:</b> Guia de Sucos Detox 24h</span>
-            <span class="bonus-item">🎁 <b>Bônus 3:</b> Lista de substituições baratas</span>
+            <div class="bonus-tag">SÓ HOJE</div>
+            <h3>🎁 VOCÊ TAMBÉM RECEBE GRÁTIS:</h3>
+            <span class="bonus-item"><b>Bônus 1:</b> Doces que não engordam (Aprenda a saciar a vontade de doce sem travar o metabolismo)</span>
+            <span class="bonus-item"><b>Bônus 2:</b> Guia de Sucos Detox 24h (O segredo para desinflamar e desinchar o abdômen em 1 dia)</span>
+            <span class="bonus-item"><b>Bônus 3:</b> Lista de Compras Econômica (O que comprar para emagrecer gastando menos de R$ 15 por dia)</span>
         </div>
 
         <div class="price-card">
             <span class="old-price">De R$ 147,00 por apenas</span>
             <div class="new-price">R$ 49,90</div>
-            <p style="margin-top: 0; font-weight: bold; color: var(--primary);">ACESSO IMEDIATO E VITALÍCIO</p>
+            <p style="margin-top: 0; font-weight: bold; color: var(--primary);">PAGAMENTO ÚNICO - SEM MENSALIDADES</p>
             
             <a href="https://pay.hotmart.com/B98977801P?checkoutMode=10" class="cta-button">QUERO MEU ACESSO AGORA</a>
             
             <div class="guarantee-box">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Shield-7-days-guarantee.svg" width="30" alt="Garantia">
-                <p>7 Dias de Garantia Incondicional</p>
+                <p>7 Dias de Garantia Incondicional ou seu dinheiro de volta.</p>
+            </div>
+
+            <div class="secure-footer">
+                <img src="https://i.imgur.com/7S8M6Xf.png" width="60" alt="Seguro">
+                <span style="font-size: 0.7em;">Ambiente de pagamento 100% criptografado e seguro.</span>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 MMI - Método Metabolismo Inteligente<br>Todos os direitos reservados.</p>
+        <p>&copy; 2026 MMI - Método Metabolismo Inteligente<br>Todos os direitos reservados.</p>
     </footer>
 
 </body>
